@@ -26,8 +26,12 @@ function App() {
 
   const handleClick = () => {
     let newBirdPosition = birdPosition - JUMP_HEIGHT
-    setBirdPosition(newBirdPosition);
-  }
+    if (newBirdPosition < 0) {
+      setBirdPosition(0)
+    } else {
+      setBirdPosition(newBirdPosition);
+    }
+  };
 
   return (
     <Div onClick={handleClick}>
