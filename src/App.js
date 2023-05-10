@@ -2,11 +2,15 @@ import './App.css';
 import styled from "styled-components"
 
 const BIRD_SIZE = 20;
+const GAME_WIDTH = 500;
+const GAME_HEIGHT = 500;
 
 function App() {
   return (
     <Div>
+      <GameBox height={GAME_HEIGHT} width={GAME_WIDTH}>
       <Bird size={BIRD_SIZE} />
+      </GameBox>
     </Div>
   );
 }
@@ -29,4 +33,8 @@ const Bird = styled.div`
     justify-content: center;
     `;
 
-  
+  const GameBox = styled.div`
+    height: ${(props) => props.height}px;
+    width: ${(props) => props.width}px;
+    background-color: blue;
+    `;
