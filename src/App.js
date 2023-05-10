@@ -5,9 +5,9 @@ const BIRD_SIZE = 20;
 
 function App() {
   return (
-    <div className="App">
+    <Div>
       <Bird size={BIRD_SIZE} />
-    </div>
+    </Div>
   );
 }
 
@@ -22,3 +22,11 @@ const Bird = styled.div`
   top: ${(props) => props.size}px;
   border-radius: 50%;
   `;
+
+  const Div = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    `;
+
+  
