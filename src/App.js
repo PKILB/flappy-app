@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import styled from "styled-components"
+
+const BIRD_SIZE = 20;
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Bird size={BIRD_SIZE} />
     </div>
   );
 }
 
 export default App;
+
+
+const Bird = styled.div`
+  position: absolute;
+  background-color: red;
+  height: ${(props) => props.size}px;
+  width: ${(props) => props.size}px;
+  top: ${(props) => props.size}px;
+  border-radius: 50%;
+  `;
