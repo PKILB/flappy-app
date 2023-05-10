@@ -6,6 +6,7 @@ const BIRD_SIZE = 20;
 const GAME_WIDTH = 500;
 const GAME_HEIGHT = 500;
 const GRAVITY = 6;
+const JUMP_HEIGHT = 100;
 
 function App() {
   const [birdPosition, setBirdPosition] = useState (250);
@@ -23,9 +24,13 @@ function App() {
     };
   });
 
+  const handleClick = () => {
+    let newBirdPosition = birdPosition - JUMP_HEIGHT
+    setBirdPosition(newBirdPosition);
+  }
 
   return (
-    <Div>
+    <Div onClick={handleClick}>
       <GameBox height={GAME_HEIGHT} width={GAME_WIDTH}>
       <Bird size={BIRD_SIZE} top={birdPosition}/>
       </GameBox>
