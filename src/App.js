@@ -13,7 +13,7 @@ const OBSTACLE_GAP = 200;
 function App() {
   const [birdPosition, setBirdPosition] = useState (250);
   const [gameHasStarted, setGameHasStarted] = useState (false);
-  const [obstacleHeight, setObstacleHeight] = useState(100);
+  const [obstacleHeight, setObstacleHeight] = useState(200);
   const [obstacleLeft, setObstacleLeft] = useState(GAME_WIDTH - OBSTACLE_WIDTH);
 
   const bottomObstacleHeight = GAME_HEIGHT - OBSTACLE_GAP - obstacleHeight;
@@ -30,6 +30,19 @@ function App() {
       clearInterval(timeId);
     };
   }, [birdPosition, gameHasStarted]);
+
+  useEffect(() => {
+    let obstacleId;
+    if (gameHasStarted && obstacleLeft >= -OBSTACLE_WIDTH) {
+      obstacleId = setInterval(() => {
+        setObstacleLeft((obstacleLeft) => obstacleLeft - 5);
+      }, 24);
+
+      return () => {
+        clearInterval(obstacleId);
+      };
+    }
+  });
 
   const handleClick = () => {
     let newBirdPosition = birdPosition - JUMP_HEIGHT
