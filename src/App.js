@@ -15,6 +15,7 @@ function App() {
   const [gameHasStarted, setGameHasStarted] = useState (false);
   const [obstacleHeight, setObstacleHeight] = useState(200);
   const [obstacleLeft, setObstacleLeft] = useState(GAME_WIDTH - OBSTACLE_WIDTH);
+  
 
   const bottomObstacleHeight = GAME_HEIGHT - OBSTACLE_GAP - obstacleHeight;
 
@@ -41,6 +42,10 @@ function App() {
       return () => {
         clearInterval(obstacleId);
       };
+    }
+    else {
+      setObstacleLeft(GAME_WIDTH - OBSTACLE_WIDTH);
+      setObstacleHeight(Math.floor(Math.random() * (GAME_HEIGHT - OBSTACLE_GAP)));
     }
   });
 
