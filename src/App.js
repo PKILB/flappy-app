@@ -15,7 +15,8 @@ function App() {
   const [gameHasStarted, setGameHasStarted] = useState (false);
   const [obstacleHeight, setObstacleHeight] = useState(200);
   const [obstacleLeft, setObstacleLeft] = useState(GAME_WIDTH - OBSTACLE_WIDTH);
-  
+  const [score, setScore] = useState(0);
+
 
   const bottomObstacleHeight = GAME_HEIGHT - OBSTACLE_GAP - obstacleHeight;
 
@@ -46,6 +47,7 @@ function App() {
     else {
       setObstacleLeft(GAME_WIDTH - OBSTACLE_WIDTH);
       setObstacleHeight(Math.floor(Math.random() * (GAME_HEIGHT - OBSTACLE_GAP)));
+      // setScore((score) => score + 1);
     }
   });
 
@@ -104,6 +106,7 @@ const Bird = styled.div`
     height: ${(props) => props.height}px;
     width: ${(props) => props.width}px;
     background-color: blue;
+    overflow: hidden; 
     `;
 
     const Obstacle = styled.div`
